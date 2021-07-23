@@ -3,3 +3,5 @@
  * @namespace AWSConfig
  * @description Index
  */
+
+export * from "./config";
