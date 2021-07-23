@@ -14,3 +14,18 @@ yarn add @sudoo/aws-config
 # Or
 npm install @sudoo/aws-config --save
 ```
+
+## Usage
+
+```ts
+import { AWSConfig } from "@sudoo/aws-config";
+
+AWSConfig.declareUpdateFunction(() => {
+    return {
+        region: "us-east-1",
+    };
+});
+AWSConfig.update(); // Update if not initiated
+AWSConfig.check(); // If initiated
+AWSConfig.ensure(); // Throw if not initiated
+```

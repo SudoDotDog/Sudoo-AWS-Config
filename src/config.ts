@@ -12,10 +12,31 @@ export class AWSConfig {
     private static _instance: AWSConfig | null = null;
 
     public static getInstance(): AWSConfig {
+
         if (!this._instance) {
             this._instance = new AWSConfig();
         }
         return this._instance;
+    }
+
+    public static declareUpdateFunction(updateFunction: AWSConfigUpdateFunction): AWSConfig {
+
+        return this.getInstance().declareUpdateFunction(updateFunction);
+    }
+
+    public static update(): boolean {
+
+        return this.getInstance().update();
+    }
+
+    public static check(): boolean {
+
+        return this.getInstance().check();
+    }
+
+    public static ensure(error?: Error): void {
+
+        this.getInstance().ensure(error);
     }
 
     private _initiated: boolean;
