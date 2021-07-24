@@ -64,8 +64,11 @@ export class AWSConfig {
             return false;
         }
 
-        const config: AWSUpdateConfig = this._updateFunction();
-        AWS.config.update(config);
+        const config: AWSUpdateConfig | null = this._updateFunction();
+
+        if (config !== null) {
+            AWS.config.update(config);
+        }
 
         this._initiated = true;
         return true;

@@ -13,4 +13,4 @@ export type AWSUpdateConfig =
     & ConfigurationServicePlaceholders
     & APIVersions;
 
-export type AWSConfigUpdateFunction = () => AWSUpdateConfig;
+export type AWSConfigUpdateFunction = () => AWSUpdateConfig | null;
