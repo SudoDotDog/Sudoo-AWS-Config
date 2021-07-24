@@ -39,6 +39,11 @@ export class AWSConfig {
         this.getInstance().ensure(error);
     }
 
+    public static reset(): void {
+
+        this.getInstance().reset();
+    }
+
     private _initiated: boolean;
 
     private _updateFunction?: AWSConfigUpdateFunction;
@@ -90,5 +95,10 @@ export class AWSConfig {
             throw error;
         }
         return;
+    }
+
+    public reset(): void {
+
+        this._initiated = false;
     }
 }
